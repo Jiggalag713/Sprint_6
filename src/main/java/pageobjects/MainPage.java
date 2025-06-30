@@ -92,4 +92,14 @@ public class MainPage {
     public void clickYandexLogo() {
         driver.findElement(yandexLogo).click();
     }
+
+    // Метод возвращает элемент аккордеона с вопросом
+    public By getAccordionHeader(String number) {
+        return By.xpath(".//div[@id='accordion__heading-" + number + "']");
+    }
+
+    // Метод возвращает элемент аккордеона с ответом
+    public By getAccordionValue(String number) {
+        return By.xpath(".//div[@id='accordion__panel-" + number + "']");
+    }
 }

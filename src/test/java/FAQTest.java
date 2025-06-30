@@ -3,7 +3,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -41,11 +40,11 @@ public class FAQTest {
         MainPage mainPage = new MainPage(driver, actions);
         mainPage.clickCookieButton();
         mainPage.scrollToFAQSection();
-        driver.findElement(By.xpath(".//div[@id='accordion__heading-" + number + "']")).click();
+        driver.findElement(mainPage.getAccordionHeader(number)).click();
         synchronized (driver) {
             driver.wait(1000);
         }
-        assertEquals(text, driver.findElement(By.xpath(".//div[@id='accordion__panel-" + number + "']")).getText());
+        assertEquals(text, driver.findElement(mainPage.getAccordionValue(number)).getText());
     }
 
     @AfterEach
