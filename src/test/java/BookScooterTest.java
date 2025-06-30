@@ -26,10 +26,10 @@ public class BookScooterTest {
 
     @ParameterizedTest
     @CsvSource({
-            "clickUpperBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, серый, ''",
-            "clickUpperBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, черный, привезите поскорее",
-            "clickLowerBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, серый, ''",
-            "clickLowerBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, черный, привезите поскорее"
+            "clickUpperBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, grey, ''",
+            "clickUpperBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, black, привезите поскорее",
+            "clickLowerBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, grey, ''",
+            "clickLowerBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, black, привезите поскорее"
     })
     public void testBookScooterUpperButton(String method, String name, String surname, String address, String metroStation,
                                            String phoneNumber, String date, String duration, String color,

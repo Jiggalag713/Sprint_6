@@ -13,12 +13,6 @@ public class RentPage {
     // Поле "Срок аренды"
     private final By rentDuration = By.xpath(".//div[@class='Dropdown-placeholder']");
 
-    // Чекбокс цвета "Черный жемчуг"
-    private final By black = By.id("black");
-
-    // Чекбокс цвета "Серая безысходность"
-    private final By grey = By.id("grey");
-
     // Поле "Комментарий для курьера"
     private final By commentInput = By.xpath(".//input[@placeholder='Комментарий для курьера']");
 
@@ -48,12 +42,9 @@ public class RentPage {
 
     // Выбрать цвет
     public void setColor(String color) {
-        if (color.equals("черный")) {
-            driver.findElement(black).click();
-        } else if (color.equals("серый")) {
-            driver.findElement(grey).click();
-        }
+        driver.findElement(By.id(color)).click();
     }
+
     // Ввести комментарий для курьера
     public void inputComment(String comment) {
         driver.findElement(commentInput).sendKeys(comment);
