@@ -41,8 +41,14 @@ public class RentPage {
     }
 
     // Выбрать цвет
-    public void setColor(String color) {
-        driver.findElement(By.id(color)).click();
+    public void setColor(Colors color) {
+        switch (color) {
+            case BLACK:
+                driver.findElement(By.id("black")).click();
+            case GREY:
+                driver.findElement(By.id("grey")).click();
+        }
+
     }
 
     // Ввести комментарий для курьера
@@ -66,7 +72,7 @@ public class RentPage {
     }
 
     // Метод заполняет поля формы
-    public void fulfillRentForm(String date, String duration, String color, String comment) {
+    public void fulfillRentForm(String date, String duration, Colors color, String comment) {
         inputDate(date);
         inputDuration(duration);
         setColor(color);

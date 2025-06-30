@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import pageobjects.Colors;
 import pageobjects.MainPage;
 import pageobjects.OrderPage;
 import pageobjects.RentPage;
@@ -26,13 +27,13 @@ public class BookScooterTest {
 
     @ParameterizedTest
     @CsvSource({
-            "clickUpperBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, grey, ''",
-            "clickUpperBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, black, привезите поскорее",
-            "clickLowerBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, grey, ''",
-            "clickLowerBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, black, привезите поскорее"
+            "clickUpperBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, GREY, ''",
+            "clickUpperBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, BLACK, привезите поскорее",
+            "clickLowerBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, GREY, ''",
+            "clickLowerBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, BLACK, привезите поскорее"
     })
     public void testBookScooterUpperButton(String method, String name, String surname, String address, String metroStation,
-                                           String phoneNumber, String date, String duration, String color,
+                                           String phoneNumber, String date, String duration, Colors color,
                                            String comment) {
         MainPage mainPage = new MainPage(driver, actions);
         mainPage.clickCookieButton();
