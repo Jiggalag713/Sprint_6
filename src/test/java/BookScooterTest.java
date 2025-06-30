@@ -26,35 +26,21 @@ public class BookScooterTest {
 
     @ParameterizedTest
     @CsvSource({
-            "Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, серый, ''",
-            "Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, черный, привезите поскорее"
+            "clickUpperBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, серый, ''",
+            "clickUpperBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, черный, привезите поскорее",
+            "clickLowerBookButton, Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, серый, ''",
+            "clickLowerBookButton, Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, черный, привезите поскорее"
     })
-    public void testBookScooterUpperButton(String name, String surname, String address, String metroStation,
+    public void testBookScooterUpperButton(String method, String name, String surname, String address, String metroStation,
                                            String phoneNumber, String date, String duration, String color,
                                            String comment) {
         MainPage mainPage = new MainPage(driver, actions);
         mainPage.clickCookieButton();
-        mainPage.clickUpperBookButton();
-        OrderPage orderPage = new OrderPage(driver);
-        orderPage.fulfillOrderForm(name, surname, address, metroStation, phoneNumber);
-        RentPage rentPage = new RentPage(driver);
-        rentPage.fulfillRentForm(date, duration, color, comment);
-        rentPage.clickOrderButton();
-        rentPage.clickYesButton();
-        assertTrue(rentPage.getResultText().contains("Номер заказа:"));
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-            "Владимир, Владимиров, Москва, Черкизовская, +77777777777, 29.06.25, сутки, серый, ''",
-            "Петр, Ким, Владивосток, Домодедово, +71234567890, 01.01.25, семеро суток, черный, привезите поскорее"
-    })
-    public void testBookScooterLowerButton(String name, String surname, String address, String metroStation,
-                                           String phoneNumber, String date, String duration, String color,
-                                           String comment) {
-        MainPage mainPage = new MainPage(driver, actions);
-        mainPage.clickCookieButton();
-        mainPage.clickLowerBookButton();
+        if (method.equals("clickUpperBookButton")) {
+            mainPage.clickUpperBookButton();
+        } else if (method.equals("clickLowerBookButton")) {
+            mainPage.clickLowerBookButton();
+        }
         OrderPage orderPage = new OrderPage(driver);
         orderPage.fulfillOrderForm(name, surname, address, metroStation, phoneNumber);
         RentPage rentPage = new RentPage(driver);
